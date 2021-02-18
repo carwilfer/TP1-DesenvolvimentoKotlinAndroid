@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Carlos_Ferreira_DR3_TP1</string>
+    <string name="selected_item">Selected item:</string>
+
+    <string-array name="tipo_lentes">
+        <item>Selecionar</item>
+        <item>Transicion</item>
+        <item>Clear</item>
+        <item>Polarizada</item>
+        <item>Multi-Focal</item>
+        <item>Bi-Focal</item>
+
+    </string-array>
+
+    <string-array name="tipoArmacoes">
+        <item>Selecionar</item>
+        <item>Aviador</item>
+        <item>Solar</item>
+        <item>Nerd</item>
+        <item>Velha</item>
+        <item>Unilateral</item>
+
+    </string-array>
+
+
+</resources>
