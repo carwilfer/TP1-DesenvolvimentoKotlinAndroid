@@ -16,10 +16,11 @@ class RepositorioClientes {
         return cliente
     }
 
-    suspend fun store(_cliente: Cliente) {
+    suspend fun store(_cliente: Cliente) : Boolean {
         delay(5000)
         cliente.add(_cliente)
-        //return Random.nextInt(100) < 90
+        //return Random.nextBoolean()
+        return Random.nextInt(100) < 90
     }
 
     companion object{

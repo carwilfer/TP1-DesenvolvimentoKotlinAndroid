@@ -20,6 +20,7 @@ class RepositorioOculos {
     suspend fun store(_oculos: Oculos): Boolean {
         delay(5000)
         oculos.add(_oculos)
+        //return Random.nextBoolean()
         return Random.nextInt(100) < 90
     }
 

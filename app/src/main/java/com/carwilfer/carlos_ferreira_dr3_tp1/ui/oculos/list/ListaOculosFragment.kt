@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.carwilfer.carlos_ferreira_dr3_tp1.LogRegister
 import com.carwilfer.carlos_ferreira_dr3_tp1.R
 import kotlinx.android.synthetic.main.lista_oculos_fragment.*
 
@@ -19,7 +20,7 @@ class ListaOculosFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         val view = inflater.inflate(R.layout.lista_oculos_fragment, container, false)
-        //LogRegister.getInstance(requireContext()).escreverLog("Acessou: ListaOculosFragment")
+        LogRegister.getInstance(requireContext()).escreverLog("Acessou: ListaOculosFragment;")
         //val appDatabase = AppDatabase.getInstance(requireContext().applicationContext)
 
         viewModel = ViewModelProvider(this).get(ListaOculosViewModel::class.java)
@@ -38,6 +39,9 @@ class ListaOculosFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         fabFormOculos.setOnClickListener{
             findNavController().navigate(R.id.formOculosFragment)
+        }
+        fabConfigOculos.setOnClickListener{
+            findNavController().navigate(R.id.configOculosFragment)
         }
 
     }

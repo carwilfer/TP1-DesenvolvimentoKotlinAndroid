@@ -5,6 +5,6 @@ class Cliente (
 
     val cpf: String? = null
 ){
-    override fun toString(): String = "$nome:  $cpf"
+    override fun toString(): String = "$nome:  $cpf:"
 
 }

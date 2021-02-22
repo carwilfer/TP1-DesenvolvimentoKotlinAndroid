@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
+import com.carwilfer.carlos_ferreira_dr3_tp1.LogRegister
 import com.carwilfer.carlos_ferreira_dr3_tp1.R
 import kotlinx.android.synthetic.main.form_cliente_fragment.*
 import kotlinx.android.synthetic.main.lista_cliente_fragment.*
@@ -22,6 +23,7 @@ class ListaClienteFragment : Fragment() {
     ): View? {
 
         val view = inflater.inflate(R.layout.lista_cliente_fragment, container, false)
+        LogRegister.getInstance(requireContext()).escreverLog("Acessou: ListaClienteFragment;")
         viewModel = ViewModelProvider(this).get(ListaClienteViewModel::class.java)
         viewModel.clientes.observe(viewLifecycleOwner){
             listViewCliente.adapter = ArrayAdapter(
@@ -39,6 +41,9 @@ class ListaClienteFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         fabFormCliente.setOnClickListener{
             findNavController().navigate(R.id.formClienteFragment)
+        }
+        fabConfigCliente.setOnClickListener{
+            findNavController().navigate(R.id.configClienteFragment)
         }
 
     }

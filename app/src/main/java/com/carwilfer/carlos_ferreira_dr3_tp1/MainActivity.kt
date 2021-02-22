@@ -2,18 +2,35 @@ package com.carwilfer.carlos_ferreira_dr3_tp1
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import java.io.File
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-       /* val lentes = resources.getStringArray(R.array.tipo_lentes)
+        //file
+/*        val file = File(filesDir, "carlos_Ferreira_tp1_DR3") //filesDir = armazenamento interno : Diretorio files
+        //Criar
+        if (!file.exists())
+            file.createNewFile()
+        //Ler
+        if (file.canRead())
+            Log.i("Arquivo", "Leitura permitida!")
+        //Escrever
+        if (file.canWrite())
+            Log.i("Arquivo", "Escrita permitida!")*/
+
+        //if (file.delete())
+
+
+        /* val lentes = resources.getStringArray(R.array.tipo_lentes)
         val armacao = resources.getStringArray(R.array.tipoArmacoes)
 
         val spinner = findViewById<Spinner>(R.id.tipo_lentes)
@@ -71,4 +88,5 @@ class MainActivity : AppCompatActivity() {
             }
         }*/
     }
+
 }

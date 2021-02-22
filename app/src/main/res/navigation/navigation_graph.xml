@@ -30,4 +30,14 @@
         android:name="com.carwilfer.carlos_ferreira_dr3_tp1.ui.home.menu.HomeMenuFragment"
         android:label="home_menu_fragment"
         tools:layout="@layout/home_menu_fragment" />
+    <fragment
+        android:id="@+id/configOculosFragment"
+        android:name="com.carwilfer.carlos_ferreira_dr3_tp1.ui.oculos.config.ConfigOculosFragment"
+        android:label="config_oculos_fragment"
+        tools:layout="@layout/config_oculos_fragment" />
+    <fragment
+        android:id="@+id/configClienteFragment"
+        android:name="com.carwilfer.carlos_ferreira_dr3_tp1.ui.cliente.config.configClienteFragment"
+        android:label="config_cliente_fragment"
+        tools:layout="@layout/config_cliente_fragment" />
 </navigation>

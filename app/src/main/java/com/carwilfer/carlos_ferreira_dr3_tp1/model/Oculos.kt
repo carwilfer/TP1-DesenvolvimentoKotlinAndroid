@@ -5,4 +5,7 @@ class Oculos (
     val cor: String? = null,
     val lente: String? = null,
     val grau: String? = null,
-)
+){
+    override fun toString(): String = "$marca:  $cor: $lente: $grau:"
+
+}
