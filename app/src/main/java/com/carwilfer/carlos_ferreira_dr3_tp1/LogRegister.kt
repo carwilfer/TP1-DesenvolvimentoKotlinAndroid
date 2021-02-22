@@ -15,6 +15,11 @@ class LogRegister(private val context: Context) {
         fileOutputStream.close()
 
     }
+
+    fun lerLog(){
+        val fileInputStream = context.openFileInput(nomeArquivoLog).bufferedReader().readText()
+    }
+
     companion object{
         private var instance: LogRegister? = null
         fun getInstance(context: Context): LogRegister{

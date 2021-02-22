@@ -44,7 +44,7 @@ class FormClienteFragment : Fragment() {
 
     private fun limparFormulário() {
         editTextFormeClienteNome.setText("")
-        editTextFormeClienteNome.setText("")
+        editTextFormeClienteCPF.setText("")
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

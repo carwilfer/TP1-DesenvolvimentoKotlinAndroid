@@ -1,10 +1,17 @@
 package com.carwilfer.carlos_ferreira_dr3_tp1.model
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity
 class Cliente (
     val nome: String? = null,
+    val cpf: String? = null,
+    @PrimaryKey(autoGenerate = true)
+    val id: Long? = null
 
-    val cpf: String? = null
 ){
     override fun toString(): String = "$nome:  $cpf:"
 
 }
+

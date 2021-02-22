@@ -4,10 +4,8 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.carwilfer.carlos_ferreira_dr3_tp1.data.RepositorioClientes
-import com.carwilfer.carlos_ferreira_dr3_tp1.data.RepositorioOculos
+import com.carwilfer.carlos_ferreira_dr3_tp1.database.RepositorioClientes
 import com.carwilfer.carlos_ferreira_dr3_tp1.model.Cliente
-import com.carwilfer.carlos_ferreira_dr3_tp1.model.Oculos
 import kotlinx.coroutines.launch
 
 class FormClienteViewModel : ViewModel() {

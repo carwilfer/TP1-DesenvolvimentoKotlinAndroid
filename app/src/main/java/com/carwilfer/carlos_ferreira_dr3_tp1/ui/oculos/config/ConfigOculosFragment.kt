@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.carwilfer.carlos_ferreira_dr3_tp1.LogRegister
 import com.carwilfer.carlos_ferreira_dr3_tp1.R
 import kotlinx.android.synthetic.main.config_cliente_fragment.*
 import kotlinx.android.synthetic.main.config_oculos_fragment.*
@@ -33,6 +34,9 @@ class ConfigOculosFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val textoOculos = LogRegister.getInstance(requireContext()).lerLog()
+        textViewLabelConteudoOculos.text = textoOculos.toString()
 
         btnVerificarArquivoOculos.setOnClickListener{
             val nomeArquivoOculos = editTextArquivoNomeOculos.text.toString()

@@ -1,4 +1,4 @@
-package com.carwilfer.carlos_ferreira_dr3_tp1.data
+package com.carwilfer.carlos_ferreira_dr3_tp1.database
 
 import com.carwilfer.carlos_ferreira_dr3_tp1.model.Oculos
 import kotlinx.coroutines.delay

@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.carwilfer.carlos_ferreira_dr3_tp1.LogRegister
 import com.carwilfer.carlos_ferreira_dr3_tp1.R
 import kotlinx.android.synthetic.main.config_cliente_fragment.*
 import java.io.File
@@ -32,6 +33,9 @@ class configClienteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val textoCliente = LogRegister.getInstance(requireContext()).lerLog()
+        textViewLabelConteudoCliente.text = textoCliente.toString()
 
         btnVerificarArquivoCliente.setOnClickListener{
             //armazenamento intermo e permanente
