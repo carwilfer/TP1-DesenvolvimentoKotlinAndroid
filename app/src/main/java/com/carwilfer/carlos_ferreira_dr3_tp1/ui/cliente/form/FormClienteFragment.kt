@@ -10,6 +10,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.carwilfer.carlos_ferreira_dr3_tp1.LogRegister
 import com.carwilfer.carlos_ferreira_dr3_tp1.R
+import com.carwilfer.carlos_ferreira_dr3_tp1.database.AppDatabase
+import com.carwilfer.carlos_ferreira_dr3_tp1.ui.oculos.form.FormOculosViewModel
+import com.carwilfer.carlos_ferreira_dr3_tp1.ui.oculos.form.FormOculosViewModelFactory
 import kotlinx.android.synthetic.main.form_cliente_fragment.*
 
 class FormClienteFragment : Fragment() {
@@ -23,13 +26,17 @@ class FormClienteFragment : Fragment() {
         val view = inflater.inflate(R.layout.form_cliente_fragment, container, false)
         LogRegister.getInstance(requireContext()).escreverLog("Acessou: FormClienteFragment;")
 
-        viewModel = ViewModelProvider(this).get(FormClienteViewModel::class.java)
+        val appDatabase = AppDatabase.getInstance(requireContext().applicationContext)
+        val clienteDao = appDatabase.clienteDao()
+        val formClienteViewModelFactory = FormClienteViewModelFactory(clienteDao)
+
+        viewModel = ViewModelProvider(this, formClienteViewModelFactory).get(FormClienteViewModel::class.java)
         viewModel.let {
-            /*it.msg.observe(viewLifecycleOwner){ msg ->
+            it.msg.observe(viewLifecycleOwner){ msg ->
                 if (!msg.isNullOrBlank()){
                     Toast.makeText(requireContext(), msg, Toast.LENGTH_LONG).show()
                 }
-            }*/
+            }
             it.status.observe(viewLifecycleOwner){status ->
                 if(status)
                     limparFormulário()
@@ -40,11 +47,6 @@ class FormClienteFragment : Fragment() {
         }
         //val view = inflater.inflate(R.layout.form_cliente_fragment, container, false)
         return view
-    }
-
-    private fun limparFormulário() {
-        editTextFormeClienteNome.setText("")
-        editTextFormeClienteCPF.setText("")
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
@@ -74,5 +76,8 @@ class FormClienteFragment : Fragment() {
 
         }
     }
-
+    private fun limparFormulário() {
+        editTextFormeClienteNome.setText("")
+        editTextFormeClienteCPF.setText("")
+    }
 }

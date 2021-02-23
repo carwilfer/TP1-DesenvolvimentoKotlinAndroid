@@ -11,6 +11,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.carwilfer.carlos_ferreira_dr3_tp1.LogRegister
 import com.carwilfer.carlos_ferreira_dr3_tp1.R
+import com.carwilfer.carlos_ferreira_dr3_tp1.database.AppDatabase
 import com.carwilfer.carlos_ferreira_dr3_tp1.ui.cliente.list.ListaClienteViewModel
 import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.form_oculos_fragment.*
@@ -32,13 +33,17 @@ class FormOculosFragment : Fragment() {
         val view = inflater.inflate(R.layout.form_oculos_fragment, container, false)
         LogRegister.getInstance(requireContext()).escreverLog("Acessou: FormOculosFragment;")
 
-        viewModel = ViewModelProvider(this).get(FormOculosViewModel::class.java)
+        val appDatabase = AppDatabase.getInstance(requireContext().applicationContext)
+        val oculosDao = appDatabase.oculosDao()
+        val formOculosViewModelFactory = FormOculosViewModelFactory(oculosDao)
+
+        viewModel = ViewModelProvider(this, formOculosViewModelFactory).get(FormOculosViewModel::class.java)
         viewModel.let {
-            /*it.msg.observe(viewLifecycleOwner) { msg ->
+            it.msg.observe(viewLifecycleOwner) { msg ->
                 if(!msg.isNullOrBlank()){
                     Toast.makeText(requireContext(), msg, Toast.LENGTH_LONG).show()
                 }
-            }*/
+            }
             it.status.observe(viewLifecycleOwner){status ->
                 if(status)
                     limparFormulário()

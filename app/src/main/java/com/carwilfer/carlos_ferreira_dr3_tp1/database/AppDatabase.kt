@@ -15,7 +15,7 @@ import com.carwilfer.carlos_ferreira_dr3_tp1.model.Oculos
 )
 abstract class AppDatabase : RoomDatabase() {
     abstract fun clienteDao(): ClienteDao
-    abstract fun OculosDao(): ClienteDao
+    abstract fun oculosDao(): OculosDao
 
     companion object{
         private var instance: AppDatabase? = null

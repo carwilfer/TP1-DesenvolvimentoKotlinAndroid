@@ -8,12 +8,17 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
+import com.carwilfer.carlos_ferreira_dr3_tp1.database.AppDatabase
+import com.carwilfer.carlos_ferreira_dr3_tp1.database.OculosDao
+import com.carwilfer.carlos_ferreira_dr3_tp1.model.Cliente
+import com.carwilfer.carlos_ferreira_dr3_tp1.model.Oculos
 import java.io.File
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
 
         //file
 /*        val file = File(filesDir, "carlos_Ferreira_tp1_DR3") //filesDir = armazenamento interno : Diretorio files

@@ -6,7 +6,7 @@ import com.carwilfer.carlos_ferreira_dr3_tp1.model.Oculos
 interface OculosDao {
     //insert
     @Insert
-    fun insert(oculos: Oculos)
+    suspend fun insert(oculos: Oculos)
     //update
     //select
     //delete
