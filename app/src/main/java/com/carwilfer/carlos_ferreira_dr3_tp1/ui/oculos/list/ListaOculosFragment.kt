@@ -9,11 +9,13 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.carwilfer.carlos_ferreira_dr3_tp1.LogRegister
+import com.carwilfer.carlos_ferreira_dr3_tp1.database.OculosUtil
 import com.carwilfer.carlos_ferreira_dr3_tp1.R
+import com.carwilfer.carlos_ferreira_dr3_tp1.database.AppDatabase
 import kotlinx.android.synthetic.main.lista_oculos_fragment.*
 
 class ListaOculosFragment : Fragment() {
-    private lateinit var viewModel: ListaOculosViewModel
+    private lateinit var listOculosViewModel: ListaOculosViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -23,21 +25,35 @@ class ListaOculosFragment : Fragment() {
         LogRegister.getInstance(requireContext()).escreverLog("Acessou: ListaOculosFragment;")
         //val appDatabase = AppDatabase.getInstance(requireContext().applicationContext)
 
-        viewModel = ViewModelProvider(this).get(ListaOculosViewModel::class.java)
-        viewModel.oculos.observe(viewLifecycleOwner){
+        val appDatabase = AppDatabase.getInstance(requireContext().applicationContext) //abre conecxão com o appdatabase através do getInstance
+        val oculosDao = appDatabase.oculosDao() //é chamado pra poder passar pra viewModel
+        val listOculosViewModelFactory = ListOculosViewModelFactory(oculosDao) //necessario para poder passar para o factory
+
+        listOculosViewModel = ViewModelProvider(this, listOculosViewModelFactory).get(ListaOculosViewModel::class.java)
+
+        listOculosViewModel.oculos.observe(viewLifecycleOwner){
             listViewOculos.adapter = ArrayAdapter(
                 requireContext(),
                 android.R.layout.simple_list_item_1,
                 it
             )
+            listViewOculos.setOnItemClickListener{ //para clicar em qualquer um item da lista
+                parent, view, position, id ->
+                val oculos = it.get(position)
+                OculosUtil.oculosSelecionado = oculos
+                findNavController().navigate(R.id.formOculosFragment)
+
+                //Toast.makeText(requireContext(), "${oculos.id}: ${oculos.marca}", Toast.LENGTH_LONG).show()
+            }
         }
-        viewModel.atualizarListaOculos()
+        listOculosViewModel.atualizarListaOculos()
         return view
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         fabFormOculos.setOnClickListener{
+            OculosUtil.oculosSelecionado = null
             findNavController().navigate(R.id.formOculosFragment)
         }
         fabConfigOculos.setOnClickListener{

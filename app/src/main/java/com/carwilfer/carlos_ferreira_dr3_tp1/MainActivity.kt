@@ -12,12 +12,32 @@ import com.carwilfer.carlos_ferreira_dr3_tp1.database.AppDatabase
 import com.carwilfer.carlos_ferreira_dr3_tp1.database.OculosDao
 import com.carwilfer.carlos_ferreira_dr3_tp1.model.Cliente
 import com.carwilfer.carlos_ferreira_dr3_tp1.model.Oculos
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import java.io.File
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        /*val appDatabase = AppDatabase.getInstance(this)
+        val clienteDao = appDatabase.clienteDao()
+        val oculosDao = appDatabase.oculosDao()
+
+        GlobalScope.launch {
+            clienteDao.Create(Cliente("Wilians", "CPF 12345678910", 1))
+            oculosDao.create(Oculos("Reef", "Marfim", "Transition", "Longe 4,5", 1))
+            Log.i("Lido", oculosDao.read( 1).toString())
+         }
+         */
+
+
+            //val cliente = Cliente("Wilians", "12345678910", 1)
+            //val oculos = Oculos("Reef", "Marfim", "Transition", "Longe 4,5", 1)
+            //clienteDao.update(cliente)
+            //oculosDao.update(oculos)
+
 
 
         //file

@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.carwilfer.carlos_ferreira_dr3_tp1.database.OculosDao
+import com.carwilfer.carlos_ferreira_dr3_tp1.database.OculosUtil
 import com.carwilfer.carlos_ferreira_dr3_tp1.database.RepositorioOculos
 import com.carwilfer.carlos_ferreira_dr3_tp1.model.Oculos
 import kotlinx.coroutines.launch
@@ -15,14 +16,16 @@ class FormOculosViewModel(
     private val oculosDao: OculosDao
 ) : ViewModel() {
 
-    private val _oculos = MutableLiveData<List<Oculos>>()
+
+
+    /*private val _oculos = MutableLiveData<List<Oculos>>()
     val oculos: LiveData<List<Oculos>> = _oculos
 
     fun atualizarListaOculos(){
         viewModelScope.launch {
             _oculos.value = RepositorioOculos.getInstance().all()
         }
-    }
+    }*/
 
     private val _status = MutableLiveData<Boolean>()
     val status: LiveData<Boolean> = _status
@@ -37,13 +40,20 @@ class FormOculosViewModel(
         _status.value = false
         _msg.value = "Por favor, aguarde a persistência!"
 
+
+
+
         viewModelScope.launch {
-            val oculos = Oculos(marca, cor, lente, grau)
+            //val oculos = Oculos(marca, cor, lente, grau)
             //AppDatabase.getInstance().oculosDao().insert(oculos0
             //val retornoOculos = RepositorioOculos.getInstance().store(oculos)
 
             try  {
-                oculosDao.insert(oculos)
+                val oculos = Oculos(marca, cor, lente, grau)
+                if(OculosUtil.oculosSelecionado != null) {
+                    oculos.id = OculosUtil.oculosSelecionado!!.id
+                    oculosDao.update(oculos)
+                } else  oculosDao.insert(oculos)
                 _status.value = true //persistiu
                 _msg.value = "Persistência realizada com sucesso!"
             } catch (e: Exception){

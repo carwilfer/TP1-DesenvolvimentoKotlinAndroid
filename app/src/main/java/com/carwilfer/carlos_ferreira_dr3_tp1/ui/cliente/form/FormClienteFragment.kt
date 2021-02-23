@@ -7,13 +7,13 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
+import com.carwilfer.carlos_ferreira_dr3_tp1.database.ClienteUtil
 import com.carwilfer.carlos_ferreira_dr3_tp1.LogRegister
 import com.carwilfer.carlos_ferreira_dr3_tp1.R
 import com.carwilfer.carlos_ferreira_dr3_tp1.database.AppDatabase
-import com.carwilfer.carlos_ferreira_dr3_tp1.ui.oculos.form.FormOculosViewModel
-import com.carwilfer.carlos_ferreira_dr3_tp1.ui.oculos.form.FormOculosViewModelFactory
+import com.carwilfer.carlos_ferreira_dr3_tp1.model.Cliente
 import kotlinx.android.synthetic.main.form_cliente_fragment.*
+import kotlinx.android.synthetic.main.form_oculos_fragment.*
 
 class FormClienteFragment : Fragment() {
 
@@ -56,6 +56,10 @@ class FormClienteFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        if(ClienteUtil.clienteSelecionado != null)
+            preencherFormulario(ClienteUtil.clienteSelecionado!!)
+
         fabFormClienteSalvar.setOnClickListener{
             LogRegister.getInstance(requireContext()).escreverLog("Clicou: Botao para cadastrar clientes;")
 
@@ -76,6 +80,13 @@ class FormClienteFragment : Fragment() {
 
         }
     }
+
+    private fun preencherFormulario(cliente: Cliente){
+        editTextOculosMarca.setText(cliente.nome)
+        editTextOculosCor.setText(cliente.cpf)
+
+    }
+
     private fun limparFormulário() {
         editTextFormeClienteNome.setText("")
         editTextFormeClienteCPF.setText("")

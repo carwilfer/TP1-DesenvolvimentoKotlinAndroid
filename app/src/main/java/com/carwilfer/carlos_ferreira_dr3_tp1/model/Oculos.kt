@@ -10,7 +10,7 @@ class Oculos (
     val lente: String? = null,
     val grau: String? = null,
     @PrimaryKey(autoGenerate = true)
-    val id: Long? = null
+    var id: Long? = null
 ){
     override fun toString(): String = "$marca:  $cor: $lente: $grau:"
 

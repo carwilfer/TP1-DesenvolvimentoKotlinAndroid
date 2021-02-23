@@ -8,16 +8,13 @@ import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.fragment.findNavController
 import com.carwilfer.carlos_ferreira_dr3_tp1.LogRegister
+import com.carwilfer.carlos_ferreira_dr3_tp1.database.OculosUtil
 import com.carwilfer.carlos_ferreira_dr3_tp1.R
 import com.carwilfer.carlos_ferreira_dr3_tp1.database.AppDatabase
+import com.carwilfer.carlos_ferreira_dr3_tp1.model.Oculos
 import com.carwilfer.carlos_ferreira_dr3_tp1.ui.cliente.list.ListaClienteViewModel
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import kotlinx.android.synthetic.main.form_oculos_fragment.*
-import kotlinx.android.synthetic.main.lista_oculos_fragment.*
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 
 class FormOculosFragment : Fragment() {
 
@@ -69,22 +66,11 @@ class FormOculosFragment : Fragment() {
 
     }
 
-    private fun limparFormulário() {
-        editTextOculosMarca.setText("")
-        editTextOculosCor.setText("")
-        editTextOculosLente.setText("")
-        editTextOculosGrau.setText("")
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        //viewModel = ViewModelProvider(this).get(FormOculosViewModel::class.java)
-
-        // TODO: Use the ViewModel
-    }
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        if(OculosUtil.oculosSelecionado != null)
+            preencherFormulario(OculosUtil.oculosSelecionado!!)
 
         fabFormOculosSalvar.setOnClickListener{
             LogRegister.getInstance(requireContext()).escreverLog("Clicou: Botao para cadastrar oculos;")
@@ -103,6 +89,27 @@ class FormOculosFragment : Fragment() {
 
         }
 
+    }
+
+    private fun preencherFormulario(oculos: Oculos){
+        editTextOculosMarca.setText(oculos.marca)
+        editTextOculosCor.setText(oculos.cor)
+        editTextOculosLente.setText(oculos.lente)
+        editTextOculosGrau.setText(oculos.grau)
+    }
+
+    private fun limparFormulário() {
+        editTextOculosMarca.setText("")
+        editTextOculosCor.setText("")
+        editTextOculosLente.setText("")
+        editTextOculosGrau.setText("")
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        //viewModel = ViewModelProvider(this).get(FormOculosViewModel::class.java)
+
+        // TODO: Use the ViewModel
     }
 
 
