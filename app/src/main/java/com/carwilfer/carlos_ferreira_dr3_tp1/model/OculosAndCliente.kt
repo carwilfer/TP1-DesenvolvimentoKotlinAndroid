@@ -22,3 +22,13 @@ class OculosAndCliente (
                 "${cliente.cpf}"
 
 }
+
+/* //Relacao 1 pra muitos
+class OculosAndCliente (
+        @Embedded val cliente: Cliente,
+        @Relation(
+                parentColumn = "id",
+                entityColumn = "clienteCreatorId"
+        )
+        val oculos: List<Oculos>
+)*/

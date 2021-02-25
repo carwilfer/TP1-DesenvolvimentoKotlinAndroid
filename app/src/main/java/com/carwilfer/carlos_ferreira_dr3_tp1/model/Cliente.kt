@@ -7,7 +7,8 @@ import androidx.room.PrimaryKey
 class Cliente (
     val nome: String? = null,
     val cpf: String? = null,
-    val oculosId: Long? = null,
+    //val dataNascimento: data? = null
+    var oculosId: Long? = null,
     @PrimaryKey(autoGenerate = true)
     var id: Long? = null
 

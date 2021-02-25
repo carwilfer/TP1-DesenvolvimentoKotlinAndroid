@@ -9,7 +9,7 @@ import com.carwilfer.carlos_ferreira_dr3_tp1.model.OculosAndCliente
 interface OculosDao {
     //insert
     @Insert
-    suspend fun insert(oculos: Oculos)
+    suspend fun insert(oculos: Oculos): Long
 
     //update
     @Update
@@ -19,6 +19,9 @@ interface OculosDao {
     @Transaction
     @Query("SELECT * FROM Oculos WHERE id = :key")
     suspend fun read(key: Long): OculosAndCliente
+
+    @Query("SELECT * FROM Oculos WHERE id = :key")
+    suspend fun readOculos(key: Long): Oculos
 
     //delete
     @Delete

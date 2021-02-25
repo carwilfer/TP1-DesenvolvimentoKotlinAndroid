@@ -14,14 +14,19 @@ class ListaClienteViewModel (
         private val clienteDao: ClienteDao
         ): ViewModel() {
 
-    private val _clientes = MutableLiveData<List<Cliente>>()
-    val clientes: LiveData<List<Cliente>> = _clientes
+    private val _clientes = MutableLiveData<MutableList<Cliente>>()
+    val clientes: LiveData<MutableList<Cliente>> = _clientes
+
+    init {
+        _clientes.value = mutableListOf<Cliente>()
+    }
 
     fun atualizarListaClientes(){
         Log.i("ListaClientesViewModel", "Atualizando Lista de Clientes")
         viewModelScope.launch {
-            _clientes.value = // RepositorioClientes.getInstance().all() aqui via o repositorio e nao o banco
-            clienteDao.all()
+            _clientes.value!!.add(Cliente("Selecione um cliente", ""))
+            _clientes.value!!.addAll(clienteDao.all().toMutableList()) // RepositorioClientes.getInstance().all() aqui via o repositorio e nao o banco
+            //clienteDao.all().toMutableList()
             Log.i("ListaClienteViewModel", "Clientes Atualizados.")
         }
         Log.i("ListaClienteViewModel", "Atualização Finalizada.")

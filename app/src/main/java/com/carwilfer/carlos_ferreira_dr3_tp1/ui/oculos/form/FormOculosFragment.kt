@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -12,14 +13,19 @@ import com.carwilfer.carlos_ferreira_dr3_tp1.LogRegister
 import com.carwilfer.carlos_ferreira_dr3_tp1.database.OculosUtil
 import com.carwilfer.carlos_ferreira_dr3_tp1.R
 import com.carwilfer.carlos_ferreira_dr3_tp1.database.AppDatabase
+import com.carwilfer.carlos_ferreira_dr3_tp1.model.Cliente
 import com.carwilfer.carlos_ferreira_dr3_tp1.model.Oculos
+import com.carwilfer.carlos_ferreira_dr3_tp1.ui.cliente.form.FormClienteViewModelFactory
+import com.carwilfer.carlos_ferreira_dr3_tp1.ui.cliente.list.ListClienteViewModelFactory
 import com.carwilfer.carlos_ferreira_dr3_tp1.ui.cliente.list.ListaClienteViewModel
+import kotlinx.android.synthetic.main.form_cliente_fragment.*
 import kotlinx.android.synthetic.main.form_oculos_fragment.*
 
 class FormOculosFragment : Fragment() {
 
     private lateinit var viewModel: FormOculosViewModel
     private lateinit var viewModelCliente: ListaClienteViewModel
+    private lateinit var cliente: Cliente
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,7 +38,8 @@ class FormOculosFragment : Fragment() {
 
         val appDatabase = AppDatabase.getInstance(requireContext().applicationContext)
         val oculosDao = appDatabase.oculosDao()
-        val formOculosViewModelFactory = FormOculosViewModelFactory(oculosDao)
+        val clienteDao = appDatabase.clienteDao()
+        val formOculosViewModelFactory = FormOculosViewModelFactory(oculosDao, clienteDao)
 
         viewModel = ViewModelProvider(this, formOculosViewModelFactory).get(FormOculosViewModel::class.java)
         viewModel.let {
@@ -45,11 +52,12 @@ class FormOculosFragment : Fragment() {
                 if(status)
                     limparFormulário()
                     //findNavController().popBackStack()
-
             }
         }
 
-        viewModelCliente = ViewModelProvider(this).get(ListaClienteViewModel::class.java)
+        //val clienteDao = appDatabase.clienteDao()
+        val listClienteViewModelFactory = ListClienteViewModelFactory(clienteDao)
+        viewModelCliente = ViewModelProvider(this, listClienteViewModelFactory).get(ListaClienteViewModel::class.java)
         viewModelCliente.clientes.observe(viewLifecycleOwner){
             var adapter = ArrayAdapter(
                 requireContext(),
@@ -58,6 +66,18 @@ class FormOculosFragment : Fragment() {
             )
             adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
             spinnerListaCliente.adapter = adapter
+            spinnerListaCliente.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+                override fun onNothingSelected(parent: AdapterView<*>?) {
+
+                }
+                override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                    cliente = it[position]
+                }
+            }
+
+            /*spinnerListaCliente.setOnItemClickListener { parent, view, position, id ->
+                cliente = it[position]
+            }*/
 
         }
         viewModelCliente.atualizarListaClientes()
@@ -85,7 +105,7 @@ class FormOculosFragment : Fragment() {
             //editTextOculosLente.isEnabled = false
             //editTextOculosGrau.isEnabled = false
 
-            viewModel.salvarOculos(marca, cor, lente, grau)
+            viewModel.salvarOculos(marca, cor, lente, grau, cliente.nome!!, cliente.cpf!!)
 
         }
 
