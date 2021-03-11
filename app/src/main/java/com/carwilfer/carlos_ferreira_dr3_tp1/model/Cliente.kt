@@ -7,13 +7,10 @@ import androidx.room.PrimaryKey
 class Cliente (
     val nome: String? = null,
     val cpf: String? = null,
-    //val dataNascimento: data? = null
-    var oculosId: Long? = null,
-    @PrimaryKey(autoGenerate = true)
-    var id: Long? = null
 
+    @PrimaryKey(autoGenerate = true)
+    val id: Long? = null
 ){
-    override fun toString(): String = "$nome:  $cpf:"
+    override fun toString(): String = "$nome:  $cpf"
 
 }
-

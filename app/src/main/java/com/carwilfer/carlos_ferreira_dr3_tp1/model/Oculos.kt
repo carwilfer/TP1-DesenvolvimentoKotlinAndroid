@@ -9,23 +9,9 @@ class Oculos (
     val cor: String? = null,
     val lente: String? = null,
     val grau: String? = null,
+
     @PrimaryKey(autoGenerate = true)
-    var id: Long? = null
+    val id: Long? = null
 ){
-    override fun toString(): String = "$marca:  $cor: $lente: $grau:"
-
+    override fun toString(): String = "$marca: $cor: $lente: $grau"
 }
-
-/* //Relacao 1 pra muitos
-@Entity
-class Oculos (
-        val clienteCreatorId: Long,
-
-        val marca: String? = null,
-        val cor: String? = null,
-        val lente: String? = null,
-        val grau: String? = null,
-        @PrimaryKey(autoGenerate = true)
-        var id: Long? = null
-        )
-*/
