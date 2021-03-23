@@ -13,7 +13,7 @@
         android:layout_width="91dp"
         android:layout_height="91dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         tools:src="@android:drawable/ic_menu_camera" />
@@ -23,7 +23,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="Nome Armação ID"
@@ -31,74 +31,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/imageViewFormOculosFoto"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/editTextAlturaOd"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="0,60"
-        android:inputType="textPersonName"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewAlturaOd"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDnpOe" />
-
-    <TextView
-        android:id="@+id/textViewAlturaOd"
-        android:layout_width="83dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Altura OD:"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDnpOe" />
-
-    <TextView
-        android:id="@+id/textViewAlturaOe"
-        android:layout_width="wrap_content"
-        android:layout_height="43dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="Altura OE:"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewAlturaOd" />
-
-    <EditText
-        android:id="@+id/editTextAlturaOe"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="0,63"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewAlturaOe"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAlturaOd" />
-
-    <EditText
-        android:id="@+id/editTextDnpOd"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="2,50"
-        android:inputType="textPersonName"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewDnpOd"
-        app:layout_constraintTop_toBottomOf="@+id/editTextOculosLente" />
 
     <TextView
         android:id="@+id/textViewLente"
@@ -110,33 +42,6 @@
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageViewFormOculosFoto" />
-
-    <TextView
-        android:id="@+id/textViewDnpOe"
-        android:layout_width="72dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="DNP OE:"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewDnpOd" />
-
-    <EditText
-        android:id="@+id/editTextDnpOe"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:ems="10"
-        android:hint="3,00"
-        android:inputType="textPersonName"
-        android:text="Name"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/textViewDnpOe"
-        app:layout_constraintTop_toBottomOf="@+id/editTextDnpOd" />
 
     <EditText
         android:id="@+id/editTextOculosLente"
@@ -154,23 +59,12 @@
         app:layout_constraintStart_toEndOf="@+id/textViewLente"
         app:layout_constraintTop_toBottomOf="@+id/imageViewFormOculosFoto" />
 
-    <TextView
-        android:id="@+id/textViewDnpOd"
-        android:layout_width="75dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:text="DNP OD:"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textViewLente" />
-
     <EditText
         android:id="@+id/editTextOculosMarca"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:ems="10"
         android:hint="Marca"
@@ -178,7 +72,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextAlturaOe" />
+        app:layout_constraintTop_toBottomOf="@+id/textViewLente" />
 
     <EditText
         android:id="@+id/editTextOculosCor"
@@ -205,14 +99,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editTextOculosCor" />
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabFormOculosSalvar"
+    <Button
+        android:id="@+id/btnForm1Proximo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:clickable="true"
-        android:src="@android:drawable/ic_menu_save"
+        android:layout_marginBottom="208dp"
+        android:text="Próximo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -221,11 +114,9 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="8dp"
         android:clickable="true"
         android:src="@android:drawable/ic_menu_view"
         android:visibility="gone"
         app:backgroundTint="#FF9800"
-        app:layout_constraintBottom_toTopOf="@+id/fabFormOculosSalvar"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

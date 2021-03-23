@@ -37,13 +37,13 @@ class FormOculosViewModel (
         _msg.value = null
     }
 
-    fun salvarOculos(armacaoId: String, dnpOlhoDireito: String, dnpOlhoEsquedo: String, /* alturaOlhoDireito: String, alturaOlhoEsquerdo: String, esfericoLongeOlhoDireito: String, esfericoLongeOlhoEsquedo: String, esfericoPertoOlhoDireito: String,
+    fun salvarOculos(armacaoId: String, /* dnpOlhoDireito: String, dnpOlhoEsquedo: String, alturaOlhoDireito: String, alturaOlhoEsquerdo: String, esfericoLongeOlhoDireito: String, esfericoLongeOlhoEsquedo: String, esfericoPertoOlhoDireito: String,
                      esfericoPertoOlhoEsquedo: String, cilindricoLongeOlhoDireito: String, cilindricoLongeOlhoEsquedo: String, cilindricoPertoOlhoDireito: String, cilindricoPertoOlhoEsquedo: String, eixoLongeOlhoDireito: String, eixoLongeOlhoEsquedo: String,
                      eixoPertoOlhoDireito: String, eixoPertoOlhoEsquedo: String,*/ lente: String, marcaArmacao: String, cor: String) {
         _status.value = false
         _msg.value = "Por favor, aguarde a persistencia!"
 
-        val oculos = Oculos(armacaoId, dnpOlhoDireito, dnpOlhoEsquedo, /*alturaOlhoDireito, alturaOlhoEsquerdo, esfericoLongeOlhoDireito, esfericoLongeOlhoEsquedo, esfericoPertoOlhoDireito,
+        val oculos = Oculos(armacaoId, /*dnpOlhoDireito, dnpOlhoEsquedo, alturaOlhoDireito, alturaOlhoEsquerdo, esfericoLongeOlhoDireito, esfericoLongeOlhoEsquedo, esfericoPertoOlhoDireito,
                 esfericoPertoOlhoEsquedo, cilindricoLongeOlhoDireito, cilindricoLongeOlhoEsquedo, cilindricoPertoOlhoDireito, cilindricoPertoOlhoEsquedo, eixoLongeOlhoDireito, eixoLongeOlhoEsquedo,
                 eixoPertoOlhoDireito, eixoPertoOlhoEsquedo,*/ lente, marcaArmacao, cor)
 
@@ -67,7 +67,7 @@ class FormOculosViewModel (
                 if (oculos != null)
                     _oculos.value = oculos!!
                 else
-                    _msg.value = "O carro foi encontrado."
+                    _msg.value = "O óculos foi encontrado."
             }
             .addOnFailureListener {
                 _msg.value = "${it.message}"

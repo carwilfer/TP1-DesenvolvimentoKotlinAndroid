@@ -20,6 +20,7 @@ import com.carwilfer.carlos_ferreira_dr3_tp1.database.OculosFirestoreDao
 import com.carwilfer.carlos_ferreira_dr3_tp1.database.OculosEClienteUtil
 import com.carwilfer.carlos_ferreira_dr3_tp1.model.Oculos
 import com.carwilfer.carlos_ferreira_dr3_tp1.ui.cliente.list.ListaClienteViewModel
+import kotlinx.android.synthetic.main.form_oculos_eixo_fragment.*
 import kotlinx.android.synthetic.main.form_oculos_fragment.*
 import kotlinx.android.synthetic.main.lista_oculos_fragment.*
 
@@ -106,9 +107,9 @@ class FormOculosFragment : Fragment() {
             LogRegister.getInstance(requireContext()).escreverLog("Cadastrar Óculos")
 
             val armacaoId = editTextOculosAmacaoId.text.toString()
-            val dnpOlhoDireito = editTextDnpOd.text.toString()
+            /*val dnpOlhoDireito = editTextDnpOd.text.toString()
             val dnpOlhoEsquedo = editTextDnpOe.text.toString()
-            /*val alturaOlhoDireito = editTextAlturaOd.text.toString()
+            val alturaOlhoDireito = editTextAlturaOd.text.toString()
             val alturaOlhoEsquerdo = editTextAlturaOe.text.toString()
             val esfericoLongeOlhoDireito = editTextEsfericoLongeOd.text.toString()
             val esfericoLongeOlhoEsquedo = editTextEsfericoLongeEs.text.toString()
@@ -126,7 +127,7 @@ class FormOculosFragment : Fragment() {
             val marcaArmacao = editTextOculosMarca.text.toString()
             val cor = editTextOculosCor.text.toString()
 
-            viewModelFormOculos.salvarOculos(armacaoId, dnpOlhoDireito, dnpOlhoEsquedo,/* alturaOlhoDireito, alturaOlhoEsquerdo, esfericoLongeOlhoDireito, esfericoLongeOlhoEsquedo, esfericoPertoOlhoDireito,
+            viewModelFormOculos.salvarOculos(armacaoId, /*dnpOlhoDireito, dnpOlhoEsquedo, alturaOlhoDireito, alturaOlhoEsquerdo, esfericoLongeOlhoDireito, esfericoLongeOlhoEsquedo, esfericoPertoOlhoDireito,
                     esfericoPertoOlhoEsquedo, cilindricoLongeOlhoDireito, cilindricoLongeOlhoEsquedo, cilindricoPertoOlhoDireito, cilindricoPertoOlhoEsquedo, eixoLongeOlhoDireito, eixoLongeOlhoEsquedo,
                     eixoPertoOlhoDireito, eixoPertoOlhoEsquedo,*/ lente, marcaArmacao, cor
             )
@@ -144,9 +145,9 @@ class FormOculosFragment : Fragment() {
 
     private fun preencherFormulario(oculos: Oculos){
         editTextOculosAmacaoId.setText(oculos.armacaoId)
-        editTextDnpOd.setText(oculos.dnpOlhoDireito)
+        /*editTextDnpOd.setText(oculos.dnpOlhoDireito)
         editTextDnpOe.setText(oculos.dnpOlhoEsquedo)
-        /*editTextAlturaOd.setText(oculos.alturaOlhoDireito)
+        editTextAlturaOd.setText(oculos.alturaOlhoDireito)
         editTextAlturaOe.setText(oculos.alturaOlhoEsquedo)
         editTextEsfericoLongeOd.setText(oculos.esfericoLongeOlhoDireito)
         editTextEsfericoLongeEs.setText(oculos.esfericoLongeOlhoDireito)
