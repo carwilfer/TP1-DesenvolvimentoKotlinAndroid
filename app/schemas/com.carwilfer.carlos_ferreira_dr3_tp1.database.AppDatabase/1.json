@@ -2,15 +2,27 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "0ada5546c7284cc13dcc23c3d9a70f3a",
+    "identityHash": "b5e243f40f5308b8560bba77b4112f77",
     "entities": [
       {
         "tableName": "Cliente",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`nome` TEXT, `cpf` TEXT, `id` INTEGER PRIMARY KEY AUTOINCREMENT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`nome` TEXT, `endereco` TEXT, `telefone` TEXT, `cpf` TEXT, `oculos` TEXT)",
         "fields": [
           {
             "fieldPath": "nome",
             "columnName": "nome",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "endereco",
+            "columnName": "endereco",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "telefone",
+            "columnName": "telefone",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -21,34 +33,122 @@
             "notNull": false
           },
           {
-            "fieldPath": "id",
-            "columnName": "id",
-            "affinity": "INTEGER",
+            "fieldPath": "oculos",
+            "columnName": "oculos",
+            "affinity": "TEXT",
             "notNull": false
           }
         ],
         "primaryKey": {
-          "columnNames": [
-            "id"
-          ],
-          "autoGenerate": true
+          "columnNames": [],
+          "autoGenerate": false
         },
         "indices": [],
         "foreignKeys": []
       },
       {
         "tableName": "Oculos",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`marca` TEXT, `cor` TEXT, `lente` TEXT, `grau` TEXT, `id` INTEGER PRIMARY KEY AUTOINCREMENT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`dnpOlhoDireito` TEXT, `dnpOlhoEsquedo` TEXT, `alturaOlhoDireito` TEXT, `alturaOlhoEsquedo` TEXT, `esfericoLongeOlhoDireito` TEXT, `esfericoLongeOlhoEsquedo` TEXT, `esfericoPertoOlhoDireito` TEXT, `esfericoPertoOlhoEsquedo` TEXT, `cilindricoLongeOlhoDireito` TEXT, `cilindricoLongeOlhoEsquedo` TEXT, `cilindricoPertoOlhoDireito` TEXT, `cilindricoPertoOlhoEsquedo` TEXT, `eixoLongeOlhoDireito` TEXT, `eixoLongeOlhoEsquedo` TEXT, `eixoPertoOlhoDireito` TEXT, `eixoPertoOlhoEsquedo` TEXT, `marcaArmacao` TEXT, `lente` TEXT, `cor` TEXT, `armacaoId` TEXT)",
         "fields": [
           {
-            "fieldPath": "marca",
-            "columnName": "marca",
+            "fieldPath": "dnpOlhoDireito",
+            "columnName": "dnpOlhoDireito",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "cor",
-            "columnName": "cor",
+            "fieldPath": "dnpOlhoEsquedo",
+            "columnName": "dnpOlhoEsquedo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "alturaOlhoDireito",
+            "columnName": "alturaOlhoDireito",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "alturaOlhoEsquedo",
+            "columnName": "alturaOlhoEsquedo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "esfericoLongeOlhoDireito",
+            "columnName": "esfericoLongeOlhoDireito",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "esfericoLongeOlhoEsquedo",
+            "columnName": "esfericoLongeOlhoEsquedo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "esfericoPertoOlhoDireito",
+            "columnName": "esfericoPertoOlhoDireito",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "esfericoPertoOlhoEsquedo",
+            "columnName": "esfericoPertoOlhoEsquedo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cilindricoLongeOlhoDireito",
+            "columnName": "cilindricoLongeOlhoDireito",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cilindricoLongeOlhoEsquedo",
+            "columnName": "cilindricoLongeOlhoEsquedo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cilindricoPertoOlhoDireito",
+            "columnName": "cilindricoPertoOlhoDireito",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "cilindricoPertoOlhoEsquedo",
+            "columnName": "cilindricoPertoOlhoEsquedo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "eixoLongeOlhoDireito",
+            "columnName": "eixoLongeOlhoDireito",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "eixoLongeOlhoEsquedo",
+            "columnName": "eixoLongeOlhoEsquedo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "eixoPertoOlhoDireito",
+            "columnName": "eixoPertoOlhoDireito",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "eixoPertoOlhoEsquedo",
+            "columnName": "eixoPertoOlhoEsquedo",
+            "affinity": "TEXT",
+            "notNull": false
+          },
+          {
+            "fieldPath": "marcaArmacao",
+            "columnName": "marcaArmacao",
             "affinity": "TEXT",
             "notNull": false
           },
@@ -59,23 +159,21 @@
             "notNull": false
           },
           {
-            "fieldPath": "grau",
-            "columnName": "grau",
+            "fieldPath": "cor",
+            "columnName": "cor",
             "affinity": "TEXT",
             "notNull": false
           },
           {
-            "fieldPath": "id",
-            "columnName": "id",
-            "affinity": "INTEGER",
+            "fieldPath": "armacaoId",
+            "columnName": "armacaoId",
+            "affinity": "TEXT",
             "notNull": false
           }
         ],
         "primaryKey": {
-          "columnNames": [
-            "id"
-          ],
-          "autoGenerate": true
+          "columnNames": [],
+          "autoGenerate": false
         },
         "indices": [],
         "foreignKeys": []
@@ -84,7 +182,7 @@
     "views": [],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, '0ada5546c7284cc13dcc23c3d9a70f3a')"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, 'b5e243f40f5308b8560bba77b4112f77')"
     ]
   }
 }

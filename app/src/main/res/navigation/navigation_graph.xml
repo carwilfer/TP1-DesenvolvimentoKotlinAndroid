@@ -3,13 +3,20 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/navigation_graph"
-    app:startDestination="@id/homeMenuFragment">
+    app:startDestination="@id/loginVendedorFragment">
 
     <fragment
         android:id="@+id/listaClienteFragment"
         android:name="com.carwilfer.carlos_ferreira_dr3_tp1.ui.cliente.list.ListaClienteFragment"
         android:label="lista_cliente_fragment"
-        tools:layout="@layout/lista_cliente_fragment" />
+        tools:layout="@layout/lista_cliente_fragment" >
+        <action
+            android:id="@+id/action_listaClienteFragment_to_formClienteFragment"
+            app:destination="@id/formClienteFragment" />
+        <action
+            android:id="@+id/action_listaClienteFragment_to_showClienteFragment"
+            app:destination="@id/showClienteFragment" />
+    </fragment>
     <fragment
         android:id="@+id/formClienteFragment"
         android:name="com.carwilfer.carlos_ferreira_dr3_tp1.ui.cliente.form.FormClienteFragment"
@@ -19,15 +26,79 @@
         android:id="@+id/formOculosFragment"
         android:name="com.carwilfer.carlos_ferreira_dr3_tp1.ui.oculos.form.FormOculosFragment"
         android:label="form_oculos_fragment"
-        tools:layout="@layout/form_oculos_fragment" />
+        tools:layout="@layout/form_oculos_fragment" >
+        <action
+            android:id="@+id/action_formOculosFragment_to_comentarioOculosFragment"
+            app:destination="@id/comentarioOculosFragment" />
+    </fragment>
     <fragment
         android:id="@+id/listaOculosFragment"
         android:name="com.carwilfer.carlos_ferreira_dr3_tp1.ui.oculos.list.ListaOculosFragment"
         android:label="lista_oculos_fragment"
-        tools:layout="@layout/lista_oculos_fragment" />
+        tools:layout="@layout/lista_oculos_fragment" >
+        <action
+            android:id="@+id/action_listaOculosFragment_to_perfilVendedorFragment"
+            app:destination="@id/perfilVendedorFragment" />
+        <action
+            android:id="@+id/action_listaOculosFragment_to_formOculosFragment"
+            app:destination="@id/formOculosFragment" />
+        <action
+            android:id="@+id/action_listaOculosFragment_to_listaClienteFragment"
+            app:destination="@id/listaClienteFragment" />
+    </fragment>
     <fragment
         android:id="@+id/homeMenuFragment"
         android:name="com.carwilfer.carlos_ferreira_dr3_tp1.ui.home.menu.HomeMenuFragment"
         android:label="home_menu_fragment"
         tools:layout="@layout/home_menu_fragment" />
+    <fragment
+        android:id="@+id/loginVendedorFragment"
+        android:name="com.carwilfer.carlos_ferreira_dr3_tp1.ui.vendedor.login.LoginVendedorFragment"
+        android:label="login_vendedor_fragment"
+        tools:layout="@layout/login_vendedor_fragment" >
+        <action
+            android:id="@+id/action_loginVendedorFragment_to_listaOculosFragment"
+            app:destination="@id/listaOculosFragment" />
+        <action
+            android:id="@+id/action_loginVendedorFragment_to_cadastroVendedorFragment"
+            app:destination="@id/cadastroVendedorFragment" />
+        <action
+            android:id="@+id/action_loginVendedorFragment_to_perfilVendedorFragment"
+            app:destination="@id/perfilVendedorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/cadastroVendedorFragment"
+        android:name="com.carwilfer.carlos_ferreira_dr3_tp1.ui.vendedor.cadastro.CadastroVendedorFragment"
+        android:label="cadastro_vendedor_fragment"
+        tools:layout="@layout/cadastro_vendedor_fragment" />
+    <fragment
+        android:id="@+id/perfilVendedorFragment"
+        android:name="com.carwilfer.carlos_ferreira_dr3_tp1.ui.vendedor.perfil.PerfilVendedorFragment"
+        android:label="perfil_vendedor_fragment"
+        tools:layout="@layout/perfil_vendedor_fragment" />
+    <fragment
+        android:id="@+id/comentarioOculosFragment"
+        android:name="com.carwilfer.carlos_ferreira_dr3_tp1.ui.oculos.coment.ComentarioOculosFragment"
+        android:label="comentario_oculos_fragment"
+        tools:layout="@layout/comentario_oculos_fragment" />
+    <fragment
+        android:id="@+id/showClienteFragment"
+        android:name="com.carwilfer.carlos_ferreira_dr3_tp1.ui.cliente.show.ShowClienteFragment"
+        android:label="show_cliente_fragment"
+        tools:layout="@layout/show_cliente_fragment" />
+    <fragment
+        android:id="@+id/configClienteFragment"
+        android:name="com.carwilfer.carlos_ferreira_dr3_tp1.ui.cliente.config.configClienteFragment"
+        android:label="config_cliente_fragment"
+        tools:layout="@layout/config_cliente_fragment" />
+    <fragment
+        android:id="@+id/configOculosFragment"
+        android:name="com.carwilfer.carlos_ferreira_dr3_tp1.ui.oculos.config.ConfigOculosFragment"
+        android:label="config_oculos_fragment"
+        tools:layout="@layout/config_oculos_fragment" />
+    <fragment
+        android:id="@+id/blankFragment"
+        android:name="com.carwilfer.carlos_ferreira_dr3_tp1.BlankFragment"
+        android:label="blank_fragment"
+        tools:layout="@layout/blank_fragment" />
 </navigation>

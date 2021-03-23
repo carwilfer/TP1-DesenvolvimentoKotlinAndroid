@@ -4,10 +4,22 @@ import androidx.room.*
 import com.carwilfer.carlos_ferreira_dr3_tp1.model.Cliente
 import com.carwilfer.carlos_ferreira_dr3_tp1.model.Oculos
 import com.carwilfer.carlos_ferreira_dr3_tp1.model.OculosAndCliente
+import com.google.android.gms.tasks.Task
+import com.google.firebase.firestore.CollectionReference
+import com.google.firebase.firestore.DocumentSnapshot
+import com.google.firebase.firestore.QuerySnapshot
 
-@Dao
 interface OculosDao {
-    //insert
+    fun insert(oculos: Oculos): Long
+    fun createOrUpdate(oculos: Oculos): Task<Void>
+    fun read(id: String): Task<DocumentSnapshot>
+    fun delete(oculos: Oculos): Task<Void>
+    fun all(): CollectionReference
+    fun allDocuments(): Task<QuerySnapshot>
+    fun searchByArmacao(marcaArmacao: String): Task<QuerySnapshot>
+
+
+    /*//insert
     @Insert
     suspend fun insert(oculos: Oculos): Long
 
@@ -29,6 +41,6 @@ interface OculosDao {
 
     //List
     @Query("SELECT * FROM Oculos")
-    suspend fun all(): List<Oculos>
+    suspend fun all(): List<Oculos>*/
 
 }

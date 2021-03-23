@@ -8,10 +8,12 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.Toast
-import com.carwilfer.carlos_ferreira_dr3_tp1.database.AppDatabase
+import androidx.navigation.findNavController
+import androidx.navigation.ui.setupWithNavController
 import com.carwilfer.carlos_ferreira_dr3_tp1.database.OculosDao
 import com.carwilfer.carlos_ferreira_dr3_tp1.model.Cliente
 import com.carwilfer.carlos_ferreira_dr3_tp1.model.Oculos
+import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import java.io.File
@@ -20,6 +22,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        bottomNavigationView.visibility = View.GONE
+        bottomNavigationView.setupWithNavController(findNavController(R.id.nvHstfragment))
 
         /*val appDatabase = AppDatabase.getInstance(this)
         val clienteDao = appDatabase.clienteDao()

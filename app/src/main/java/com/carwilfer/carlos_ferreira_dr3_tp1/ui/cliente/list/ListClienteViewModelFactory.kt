@@ -2,9 +2,10 @@ package com.carwilfer.carlos_ferreira_dr3_tp1.ui.cliente.list
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.carwilfer.carlos_ferreira_dr3_tp1.database.ClienteDao
 import java.lang.IllegalArgumentException
 
+
+/*
 class ListClienteViewModelFactory (
         private val clienteDao: ClienteDao
         ) : ViewModelProvider.Factory {
@@ -13,4 +14,5 @@ class ListClienteViewModelFactory (
             return ListaClienteViewModel(clienteDao) as T
         throw IllegalArgumentException("Classe viewModel desconhecida.")
     }
-}
+
+}*/

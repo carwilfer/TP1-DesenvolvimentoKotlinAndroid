@@ -14,13 +14,11 @@ class OculosAndCliente (
         val cliente: Cliente
 ) {
         override fun toString(): String = "Oculos:" +
-                "${oculos.marca}\t" +
+                "${oculos.marcaArmacao}\t" +
                 "${oculos.cor}\t" +
                 "${oculos.lente}\t" +
-                "${oculos.grau}\t" +
-                "${cliente.nome}\t" +
-                "${cliente.cpf}"
-
+                "${cliente.cpf}\t" +
+                "${cliente.nome}"
 }
 
 /* //Relacao 1 pra muitos
